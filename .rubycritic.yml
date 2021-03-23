@@ -1,0 +1,2 @@
+mode_ci:
+minimum_score: 95 # default is 0
