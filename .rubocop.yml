@@ -19,14 +19,26 @@ AllCops:
     - 'config/environments/*'
     - 'config/application.rb'
 
+Style/ClassAndModuleChildren:
+  Enabled: false
+
 Style/Documentation:
- Enabled: false
+  Enabled: false
+
+Style/EmptyMethod:
+  Enabled: false
 
 Style/FrozenStringLiteralComment:
- Enabled: false
+  Enabled: false
+
+Style/MultilineIfModifier:
+  Enabled: false
+
+Layout/ArgumentAlignment:
+  Enabled: false
 
 Metrics/BlockLength:
- ExcludedMethods: ['describe', 'context', 'feature', 'scenario', 'let']
+ IgnoredMethods: ['describe', 'context', 'feature', 'scenario', 'let']
 
 Layout/LineLength:
   Max: 80
