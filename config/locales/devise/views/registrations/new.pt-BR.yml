@@ -1,0 +1,11 @@
+---
+pt-BR:
+  devise:
+    registrations:
+      new:
+        title: "Cadastra-se"
+        email_label: "Email"
+        password_label: "Senha"
+        password_contraint: "caracteres no mínimo"
+        password_confirmation_label: "Confirmar Senha"
+        sign_up_button: "Cadastrar"

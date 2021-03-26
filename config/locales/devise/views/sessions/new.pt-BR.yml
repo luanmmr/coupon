@@ -1,0 +1,8 @@
+---
+pt-BR:
+  devise:
+    sessions:
+      new:
+        log_in: "Entrar"
+        email_label: "Email"
+        password_label: "Senha"
