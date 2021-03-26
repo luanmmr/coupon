@@ -1,0 +1,7 @@
+---
+pt-BR:
+  devise:
+    shared:
+      links:
+        sign_up: "Cadastre-se"
+        sign_in: "Entrar"
