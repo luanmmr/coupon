@@ -12,5 +12,6 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
+// Foi necessário comentar para funcionar o modal
+//  require turbolinks
 //= require_tree .
