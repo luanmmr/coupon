@@ -1,12 +1,11 @@
 FactoryBot.define do
   factory :promotion do
-    description { "MyString" }
-    prefix { "MyString" }
-    discount_percentage { "9.99" }
-    max_discount_value { "9.99" }
-    start_date { "2021-03-28" }
-    end_date { "2021-03-28" }
-    max_usage { 1 }
-    status { 1 }
+    description { 'Natal da Locaweb' }
+    prefix { "NATAL" }
+    discount_percentage { 10.0 }
+    max_discount_value { 50 }
+    start_date { Date.current }
+    end_date { 5.days.from_now }
+    max_usage { 10 }
   end
 end
