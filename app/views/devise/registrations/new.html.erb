@@ -1,28 +1,32 @@
-<h2>Sign up</h2>
+<h2><%= t('.title') %></h2> <br>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), 
+                       class: 'ls-form ls-login-form') do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="field ls-label">
+    <!-- <%= f.label :email, t('.email_label') %><br /> -->
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", 
+                              placeholder: t('.email_label') %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
+  <div class="field ls-label">
+    <!-- %= f.label :password, t('.password_label') %> -->
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <em>(<%= @minimum_password_length %> <%= t('.password_contraint') %>)</em>
+    <% end %><br /><br>
+    <%= f.password_field :password, autocomplete: "new-password", 
+                                    placeholder: t('.password_label') %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="field ls-label">
+    <!-- <%= f.label :password_confirmation, t('.password_confirmation_label') %><br /> -->
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", 
+                                                 placeholder: t('.password_confirmation_label') %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit t('.sign_up_button'), class: 'ls-btn-primary ls-btn-block ls-btn-lg' %>
   </div>
 <% end %>
 
