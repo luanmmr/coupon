@@ -1,0 +1,6 @@
+---
+pt-BR:
+  layouts:
+    app:
+      logout_button: 'Sair'
+
