@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_28_185643) do
+ActiveRecord::Schema.define(version: 2021_03_28_200539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "coupons", force: :cascade do |t|
+    t.string "code"
+    t.bigint "promotion_id", null: false
+    t.integer "status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["promotion_id"], name: "index_coupons_on_promotion_id"
+  end
 
   create_table "promotions", force: :cascade do |t|
     t.string "description"
@@ -40,4 +49,5 @@ ActiveRecord::Schema.define(version: 2021_03_28_185643) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "coupons", "promotions"
 end
