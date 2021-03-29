@@ -1,5 +1,5 @@
 <h1 class="ls-title-intro ls-ico-bell-o">
-  <%= t('.title') %>
+  <%= Promotion.model_name.human(count: 2) %>
 </h1>
 
 <div class="ls-alert-danger"><%= alert %></div>
@@ -26,27 +26,12 @@
         <%= Promotion.human_attribute_name('id') %>
       </th>
       <th>
-        <%= Promotion.human_attribute_name('description') %>
-      </th>
-      <th class="hidden-xs">
         <%= Promotion.human_attribute_name('prefix') %>
       </th>
-      <th>
+      <th class="hidden-xs">
         <%= Promotion.human_attribute_name('discount_percentage') %>
       </th>
-      <th class="hidden-xs">
-        <%= Promotion.human_attribute_name('max_discount_value') %>
-      </th>
       <th>
-        <%= Promotion.human_attribute_name('start_date') %>
-      </th>
-      <th class="hidden-xs">
-        <%= Promotion.human_attribute_name('end_date') %>
-      </th>
-      <th>
-        <%= Promotion.human_attribute_name('max_usage') %>
-      </th>
-      <th class="hidden-xs">
         <%= Promotion.human_attribute_name('status') %>
       </th>
       <th></th>
@@ -55,15 +40,16 @@
   <tbody>
   <% @promotions.each do | promotion | %>
     <tr id=<%= "promotion-#{promotion.id}" %>>
-      <td class="hidden-xs"><%= promotion.id %></td>
-      <td><%= promotion.description %></td>
-      <td class="hidden-xs"><%= promotion.prefix %></td>
-      <td><%= promotion.discount_percentage %></td>
-      <td class="hidden-xs"><%= promotion.max_discount_value %></td>
-      <td><%= promotion.start_date.strftime('%d/%m/%Y') %></td>
-      <td class="hidden-xs"><%= promotion.end_date.strftime('%d/%m/%Y') %></td>
-      <td><%= promotion.max_usage %></td>
-      <td class="hidden-xs"><%= promotion.status %></td>
+      <td class="hidden-xs">
+        <%= link_to promotion.id, promotion %>
+      </td>
+      <td>
+        <%= promotion.prefix %>
+      </td>
+      <td class="hidden-xs">
+        <%= format("%.0f", promotion.discount_percentage) %>%
+      </td>
+      <td><%= promotion.status %></td>
       <td>
         <%= link_to t('.edit_button'), edit_promotion_path(promotion), class: 'ls-btn' %> 
         <!-- <%= link_to '', promotion, method: :delete, class: 'ls-btn-primary-danger ls-ico-remove',

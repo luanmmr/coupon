@@ -1,0 +1,77 @@
+<h1 class="ls-title-intro ls-ico-bell-o">
+  <%= Promotion.model_name.human %>
+</h1>
+
+<div class="ls-alert-danger"><%= alert %></div>
+<div class="ls-alert-success"><%= notice %></div>
+
+<div class="ls-list">
+  <header class="ls-list-header">
+    <div class="ls-list-title col-md-9">
+      <a href="#" >
+        <%= @promotion.description %>
+      </a>
+      <small><%= @promotion.prefix %></small>
+    </div>
+    <div class="ls-group-btn ls-group-active">
+      <%= link_to t('.approved_button'), approve_promotion_path(@promotion), 
+                                         class: 'ls-btn-primary', method: :post %>
+      <%= link_to t('.generate_coupons'), generate_coupons_promotion_path(@promotion), 
+                                          class: 'ls-btn-primary', method: :post %>
+    </div>
+  </header>
+  <div class="ls-list-content ">
+    <div class="col-xs-12 col-md-6">
+      <span class="ls-list-label">
+        <%= Promotion.human_attribute_name('discount_percentage') %>
+      </span>
+      <strong>
+        <%= format("%.0f", @promotion.discount_percentage) %>%
+      </strong>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <span class="ls-list-label">
+        <%= Promotion.human_attribute_name('max_discount_value') %>
+      </span>
+      <strong>
+        <%= format("%.0f", @promotion.max_discount_value) %>%
+      </strong>
+    </div>
+  </div>
+  <div class="ls-list-content ">
+    <div class="col-xs-12 col-md-6">
+      <span class="ls-list-label">
+        <%= Promotion.human_attribute_name('start_date') %>
+      </span>
+      <strong>
+        <%= @promotion.start_date.strftime('%d/%m/%Y') %>
+      </strong>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <span class="ls-list-label">
+        <%= Promotion.human_attribute_name('end_date') %>
+      </span>
+      <strong>
+        <%= @promotion.end_date.strftime('%d/%m/%Y') %>
+      </strong>
+    </div>
+  </div>
+  <div class="ls-list-content ">
+    <div class="col-xs-12 col-md-6">
+      <span class="ls-list-label">
+        <%= Promotion.human_attribute_name('max_usage') %>
+      </span>
+      <strong>
+        <%= @promotion.max_usage %>
+      </strong>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <span class="ls-list-label">
+        <%= Promotion.human_attribute_name('status') %>
+      </span>
+      <strong>
+        <%= @promotion.status %>
+      </strong>
+    </div>
+  </div>
+</div>

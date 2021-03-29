@@ -2,7 +2,6 @@
 pt-BR:
   promotions:
     index:
-      title: 'Promoções'
       errors_phrase: 'Possíveis erros'
       add_button: 'Adicionar Promoção'
       edit_button: 'Editar'
@@ -11,3 +10,6 @@ pt-BR:
       title: 'Adicionar Promoção'
     edit:
       errors_phrase: 'Possíveis erros'
+    show:
+      approved_button: 'Aprovar'
+      generate_coupons: 'Gerar Cupons'

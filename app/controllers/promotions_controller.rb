@@ -27,6 +27,31 @@ class PromotionsController < ApplicationController
     render :edit
   end
 
+  def show
+    @promotion = Promotion.find(find_promotion.fetch(:id))
+  end
+
+  def approve
+    promotion = Promotion.find(find_promotion.fetch(:id))
+    promotion.approved!
+    redirect_back fallback_location: promotion_path, 
+                  notice: t('.approved')
+  end
+
+  def generate_coupons
+    @promotion = Promotion.find(find_promotion.fetch(:id))
+    if @promotion.approved?
+      @promotion.issued!
+      @promotion.generate_coupons
+      redirect_back fallback_location: promotion_path,
+                    notice: @promotion.max_usage.to_s + 
+                            t('.created_cupons')
+    else
+      redirect_back fallback_location: promotion_path,
+                    alert: t('.not_approved')
+    end
+  end
+
 
   private
 
