@@ -1,0 +1,19 @@
+ <h1 class="ls-title-intro ls-ico-bell-o">
+  <%= Promotion.model_name.human(count: 1) %>
+</h1>
+
+<div class="ls-alert-danger"><%= alert %></div>
+<div class="ls-alert-success"><%= notice %></div>
+
+<% if @promotion.errors.any? %>
+<ul style="list-style-type:none">
+  <h4><%= t('.errors_phrase') %>: </h4><br>
+  <% @promotion.errors.full_messages.each do |msg| %>
+    <li>- <%= msg %></li>
+  <% end %>
+</ul>
+ <br><br>
+ <% end %>
+
+<%= render 'form' %>
+

@@ -1,0 +1,9 @@
+---
+pt-BR:
+  promotions:
+    create:
+      success: 'Promoção adicionada'
+      error: 'Promoção não adicionada'
+    update:
+      success: 'Promoção editada'
+      error: 'Promoção não editada'

@@ -1,0 +1,38 @@
+<%= form_with model: @promotion, local: true, 
+              class: 'ls-form ls-form-horizontal' do | form |%>
+  <div class="ls-modal-body" id="myModalBody">
+    <fieldset>
+      <label class="ls-label col-md-4 col-xs-12">
+        <%= form.label :description %>
+        <%= form.text_field :description %>
+      </label>
+      <label class="ls-label col-md-4 col-xs-12">
+        <%= form.label :prefix %>
+        <%= form.text_field :prefix %>
+      </label>
+      <label class="ls-label col-md-4 col-xs-12">
+        <%= form.label :discount_percentage %>
+        <%= form.number_field :discount_percentage, in: 1.0..100.0, step: 0.01 %>
+      </label>
+      <label class="ls-label col-md-4 col-xs-12">
+        <%= form.label :max_discount_value %>
+        <%= form.text_field :max_discount_value, in: 1.0..100.0, step: 0.01 %>
+      </label>
+      <label class="ls-label col-md-4 col-xs-12">
+        <%= form.label :start_date %>
+        <%= form.date_field :start_date %>
+      </label>
+      <label class="ls-label col-md-4 col-xs-12">
+        <%= form.label :end_date %>
+        <%= form.date_field :end_date %>
+      </label>
+      <label class="ls-label col-md-4 col-xs-12">
+        <%= form.label :max_usage %>
+        <%= form.number_field :max_usage %>
+      </label>
+    </fieldset> 
+  </div>
+  <div class="ls-modal-footer">
+    <%= form.submit class: 'ls-btn-primary' %>
+  </div>
+<% end %>

@@ -1,0 +1,13 @@
+---
+pt-BR:
+  promotions:
+    index:
+      title: 'Promoções'
+      errors_phrase: 'Possíveis erros'
+      add_button: 'Adicionar Promoção'
+      edit_button: 'Editar'
+      confirmation_deletion: 'Confirmar a deleção?'
+    modal:
+      title: 'Adicionar Promoção'
+    edit:
+      errors_phrase: 'Possíveis erros'

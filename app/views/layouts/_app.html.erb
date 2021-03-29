@@ -40,11 +40,7 @@
 
   <nav class="ls-menu">
     <ul>
-      <li><%= link_to 'Teste1', root_path, class: 'ls-ico-calendar' %></li>
-      <li><%= link_to 'Teste2', root_path, class: 'ls-ico-origins' %></li>
-      <li><%= link_to 'Teste3', root_path, class: 'ls-ico-checkbox-unchecked' %></li>
-      <li><%= link_to 'Teste4', root_path, class: 'ls-ico-star' %></li>
-      <li><%= link_to t('.apis_title'), root_path, class: 'ls-ico-insert-template' %>
+      <li><%= link_to Promotion.model_name.human(count: 2), promotions_path, class: 'ls-ico-bell-o' %></li>
     </ul>
   </nav>
 
