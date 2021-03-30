@@ -1,5 +1,8 @@
 ---
 pt-BR:
+  validate:
+    start_date_in_past: 'não pode ser no passado'
+    end_dt_smaller_than_start_dt: 'precisa ser maior do que a data de início'
   activerecord:
     models:
       promotion:
