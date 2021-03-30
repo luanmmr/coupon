@@ -14,10 +14,24 @@
       <small><%= @promotion.prefix %></small>
     </div>
     <div class="ls-group-btn ls-group-active">
-      <%= link_to t('.approved_button'), approve_promotion_path(@promotion), 
-                                         class: 'ls-btn-primary', method: :post %>
-      <%= link_to t('.generate_coupons'), generate_coupons_promotion_path(@promotion), 
-                                          class: 'ls-btn-primary', method: :post %>
+      <% if @promotion.waiting_for_approval? %>
+        <%= link_to t('.approved_button'), approve_promotion_path(@promotion), 
+                    class: 'ls-btn-primary', method: :post %>
+      <% else %>
+        <%= link_to t('.approved_button'), approve_promotion_path(@promotion), 
+                    class: 'ls-btn-primary', method: :post, disabled: :true %>
+      <% end %>
+
+      <% if @promotion.approved? %>
+        <%= link_to t('.generate_coupons'), generate_coupons_promotion_path(@promotion), 
+                    class: 'ls-btn-primary', method: :post %>
+      <% else %>
+        <%= link_to t('.generate_coupons'), generate_coupons_promotion_path(@promotion), 
+                    class: 'ls-btn-primary', method: :post, disabled: :true %>
+      <% end %>
+
+      
+      
     </div>
   </header>
   <div class="ls-list-content ">
@@ -75,3 +89,18 @@
     </div>
   </div>
 </div>
+
+<% unless @promotion.coupons.empty? %>
+  <div class="ls-list">
+    <header class="ls-list-header">
+      <div class="ls-list-title col-md-9">
+        <a href="#" >Cupons</a>
+      </div>
+      <div class="col-md-12">
+        <% @promotion.coupons.each do |coupom| %>
+          <%= "#{coupom.code}" %>
+        <% end %>
+      </div>
+    </header>
+  </div>
+<% end %>

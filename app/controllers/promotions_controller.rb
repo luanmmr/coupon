@@ -44,7 +44,7 @@ class PromotionsController < ApplicationController
       @promotion.issued!
       @promotion.generate_coupons
       redirect_back fallback_location: promotion_path,
-                    notice: @promotion.max_usage.to_s + 
+                    notice: @promotion.max_usage.to_s + " " +
                             t('.created_cupons')
     else
       redirect_back fallback_location: promotion_path,

@@ -51,7 +51,13 @@
       </td>
       <td><%= promotion.status %></td>
       <td>
-        <%= link_to t('.edit_button'), edit_promotion_path(promotion), class: 'ls-btn' %> 
+        <% if promotion.waiting_for_approval? || promotion.approved? %>
+          <%= link_to t('.edit_button'), edit_promotion_path(promotion), class: 'ls-btn' %>
+        <% else %>
+          <%= link_to t('.edit_button'), edit_promotion_path(promotion), class: 'ls-btn',
+                                         disabled: :true %>
+        <% end %>
+         
         <!-- <%= link_to '', promotion, method: :delete, class: 'ls-btn-primary-danger ls-ico-remove',
                                      data: { confirm: t('.confirmation_deletion') }, 
                                      id: 'deletar_button' %> -->
