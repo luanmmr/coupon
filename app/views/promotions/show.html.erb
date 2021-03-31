@@ -90,14 +90,15 @@
   </div>
 </div>
 
-<% unless @promotion.coupons.empty? %>
+<% unless @cupons.empty? %>
   <div class="ls-list">
     <header class="ls-list-header">
       <div class="ls-list-title col-md-9">
-        <a href="#" >Cupons</a>
+        <a href="#" ><%= t('.coupons_title') %></a>
+        <small><%= t('.availabled_coupons') %></small>
       </div>
       <div class="col-md-12">
-        <% @promotion.coupons.each do |coupom| %>
+        <% @cupons.each do |coupom| %>
           <%= "#{coupom.code}" %>
         <% end %>
       </div>

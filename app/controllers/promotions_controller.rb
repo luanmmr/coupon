@@ -1,5 +1,5 @@
 class PromotionsController < ApplicationController
-  before_action :all_promotions
+  before_action :all_promotions, only: :index
 
   def index
     @promotion = Promotion.new
@@ -29,6 +29,7 @@ class PromotionsController < ApplicationController
 
   def show
     @promotion = Promotion.find(find_promotion.fetch(:id))
+    @cupons = @promotion.coupons.where(status: :available)
   end
 
   def approve
