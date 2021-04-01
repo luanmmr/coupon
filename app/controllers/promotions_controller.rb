@@ -1,5 +1,6 @@
 class PromotionsController < ApplicationController
   before_action :all_promotions, only: :index
+  before_action :all_products, only: %i[index create edit update]
 
   def index
     @promotion = Promotion.new
@@ -7,6 +8,7 @@ class PromotionsController < ApplicationController
 
   def create
     @promotion = Promotion.new(promotion_params)
+    fill_promotion_fields
     return redirect_to promotions_path, notice: t('.success') \
            if @promotion.save
     
@@ -63,10 +65,20 @@ class PromotionsController < ApplicationController
   def promotion_params
     params.require(:promotion).permit(:description, :prefix,
       :discount_percentage, :max_discount_value, :start_date,
-      :end_date, :max_usage)
+      :end_date, :max_usage, :product_id)
   end
 
   def find_promotion
     params.permit(:id)
+  end
+
+  def all_products
+    @products = Product.all
+  end
+
+  def fill_promotion_fields
+    @promotion.user = current_user
+    product = Product.find(@promotion.product_id.to_i)
+    @promotion.product_key = product.key
   end
 end

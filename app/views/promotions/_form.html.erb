@@ -30,6 +30,10 @@
         <%= form.label :max_usage %>
         <%= form.number_field :max_usage %>
       </label>
+      <label class="ls-label col-md-4 col-xs-12">
+        <%= form.label :product_id, t('.label_product') %>
+        <%= form.collection_select :product_id, @products, :id, :key %>
+      </label>
     </fieldset> 
   </div>
   <div class="ls-modal-footer">
