@@ -1,0 +1,14 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      coupon:
+        one: 'Cupom'
+        other: 'Cupons'
+    attributes:
+      coupon:
+        id: 'ID'
+        code: 'Código'
+        promotion_id: 'Promoção'
+        status: 'Status'
+        created_at: 'Data de Criação'

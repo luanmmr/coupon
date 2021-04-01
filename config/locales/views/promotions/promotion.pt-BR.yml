@@ -14,6 +14,5 @@ pt-BR:
       approved_button: 'Aprovar'
       generate_coupons: 'Gerar Cupons'
       coupons_title: 'Cupons'
-      availabled_coupons: 'Disponíveis'
     form:
       label_product: 'Produto'
