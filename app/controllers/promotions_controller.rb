@@ -73,12 +73,12 @@ class PromotionsController < ApplicationController
   end
 
   def all_products
-    @products = Product.all
+    @products = Product::Client.all
   end
 
   def fill_promotion_fields
     @promotion.user = current_user
-    product = Product.find(@promotion.product_id.to_i)
+    product = Product::Client.find(@promotion.product_id.to_i)
     @promotion.product_key = product.key
   end
 end

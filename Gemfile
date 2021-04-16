@@ -5,7 +5,10 @@ ruby '2.6.3'
 
 gem 'rename'
 gem 'devise'
-gem 'faraday'
+gem 'faraday', '~> 0.9'
+gem 'faraday_middleware', '~> 0.10'
+gem 'dry-struct', '~> 1.2'
+gem 'dry-types', '~> 1.2', '>= 1.2.2'
 gem 'mimemagic', github: 'mimemagicrb/mimemagic', 
     ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -47,6 +50,7 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'rspec-rails'
+  gem 'dotenv-rails'
 end
 
 group :development do
